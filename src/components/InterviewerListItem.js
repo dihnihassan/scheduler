@@ -17,7 +17,7 @@ function InterviewerListItem(props) {
     alt="Sylvia Palmer"
   />
   {/* {props.name or props.children} */}
-  {props.name}
+  {props.selected && props.name}
 </li>
   )
 }
