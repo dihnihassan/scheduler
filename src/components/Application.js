@@ -10,7 +10,8 @@ import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
 
 import { getAppointmentsForDay } from "helpers/selectors";
-import { getByDisplayValue } from "@testing-library/react";
+// import { getByDisplayValue } from "@testing-library/react";
+import { getInterview } from "helpers/selectors";
 
 // const days = [
 //   {
@@ -81,14 +82,15 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {},
+    interviewers: {}
   });
 
   let dailyAppointments = [];
 
   dailyAppointments = getAppointmentsForDay(state, state.day);
 
-  console.log("Daily Appointments", dailyAppointments);
+  // console.log("Daily Appointments", dailyAppointments);
   
 useEffect(() => {
   Promise.all([
@@ -98,7 +100,7 @@ useEffect(() => {
   ]).then((all) => {
     setState(state => ({...state, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}))
     // setDays([...response.data]);
-    console.log(all[1].data);
+    // console.log(all[2].data);
   })
 }, []);
 
@@ -133,10 +135,14 @@ useEffect(() => {
       </section>
       <section className="schedule">
         {dailyAppointments.map((appointment) => {
+          const interview = getInterview(state, appointment.interview);
+          
           return (
             <Appointment 
             key={appointment.id} 
-            {...appointment} 
+            id={appointment.id}
+            time={appointment.time}
+            interview={interview}
           />
           )
         })}

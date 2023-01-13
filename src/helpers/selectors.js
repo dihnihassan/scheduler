@@ -26,3 +26,29 @@ export function getAppointmentsForDay(state, day) {
   }
   return result;
 }
+
+export function getInterview(state, interview) {
+
+
+  if (!interview) {
+    return null;
+  }
+
+  const newObj = {}
+
+  newObj.interviewer = state.interviewers[interview.interviewer];
+  newObj.student = interview.student
+  // console.log("NewObj", newObj);
+  return newObj;
+  // // if (state.interviewers === interview.interviewer) {
+  // }
+// console.log("Interview", interview);
+// console.log("StateInterviews", state.interviewers);
+  
+
+// //  console.log("NewObj", newObj);
+
+  // return new object containing interview data
+  // console.log("State", state)
+
+}
