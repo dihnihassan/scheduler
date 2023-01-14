@@ -6,12 +6,12 @@ import axios from "axios";
 import "components/Application.scss";
 
 import DayList from "./DayList";
-import InterviewerList from "./InterviewerList";
+// import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
 
 import { getAppointmentsForDay } from "helpers/selectors";
-// import { getByDisplayValue } from "@testing-library/react";
 import { getInterview } from "helpers/selectors";
+import { getInterviewersForDay } from "helpers/selectors";
 
 // const days = [
 //   {
@@ -86,6 +86,8 @@ export default function Application(props) {
     interviewers: {}
   });
 
+  const interviewersPerDay = getInterviewersForDay(state, state.day);
+
   let dailyAppointments = [];
 
   dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -143,6 +145,7 @@ useEffect(() => {
             id={appointment.id}
             time={appointment.time}
             interview={interview}
+            interviewers={interviewersPerDay}
           />
           )
         })}

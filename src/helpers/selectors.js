@@ -52,3 +52,23 @@ export function getInterview(state, interview) {
   // console.log("State", state)
 
 }
+
+export function getInterviewersForDay(state, day) {
+  const findDay = state.days.find(stateDay => stateDay.name === day);
+  
+  let result = [];
+
+  if (!state.days.length) {
+    return result;
+  }
+
+  if (findDay === undefined) {
+    return result;
+  }
+
+  for (const appointment of findDay.appointments) {
+
+    result.push(state.interviewers[appointment])
+  }
+  return result;
+}
