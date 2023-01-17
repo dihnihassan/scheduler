@@ -45,10 +45,10 @@ export function getInterviewersForDay(state, day) {
   if (findDay === undefined) {
     return result;
   }
+  for (const id of findDay.interviewers) {
 
-  for (const appointment of findDay.appointments) {
-
-    result.push(state.interviewers[appointment])
+    result.push(state.interviewers[id])
   }
+ 
   return result;
 }
