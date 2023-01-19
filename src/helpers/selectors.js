@@ -51,10 +51,3 @@ export function getInterviewersForDay(state, day) {
  
   return result;
 }
-
-export function updateSpots() {
-  
-  const findDay = state.days.find(stateDay => stateDay.name === day);
-
-}
-
