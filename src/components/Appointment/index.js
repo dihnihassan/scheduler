@@ -53,7 +53,7 @@ function Appointment(props) {
   }
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === CREATE && (
         <Form
@@ -71,7 +71,7 @@ function Appointment(props) {
           onEdit={() => transition(EDIT)}
         />
       )}
-      {mode === SAVING && <Status message={"SAVING"} />}
+      {mode === SAVING && <Status message={"Saving"} />}
       {mode === DELETING && <Status message={"DELETING"} />}
       {mode === CONFIRM && <Confirm
         message="Are you sure you want to delete this appointment?"
