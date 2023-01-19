@@ -84,7 +84,6 @@ export default {
     return Promise.resolve({
       status: 204,
       statusText:"No Content"
-      // data: interviewers
     });
   }),
 
@@ -92,7 +91,6 @@ export default {
     return Promise.resolve({
       status: 204,
       statusText:"Are you sure you want to delete this appointment?"
-      // data: interviewers
     })
   })
 }

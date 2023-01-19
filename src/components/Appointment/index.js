@@ -13,7 +13,6 @@ import useVisualMode from "hooks/useVisualMode";
 
 
 function Appointment(props) {
-  // console.log("props", props);
 
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";

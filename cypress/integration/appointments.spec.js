@@ -19,7 +19,6 @@ describe("Appointments", () => {
     cy.contains(".appointment__card--show", "Lydia Miller-Jones");
     cy.contains(".appointment__card--show", "Sylvia Palmer");
 
-    // cy.get(':nth-child(2) > .appointment__add > .appointment__add-button')
   });
 
   it("should edit an interview", () => {

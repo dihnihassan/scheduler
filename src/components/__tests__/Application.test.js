@@ -108,10 +108,6 @@ describe ("Application", () => {
 
   });
 
-  // it("shows the save error when failing to save an appointment", () => {
-  //   axios.put.mockRejectedValueOnce();
-  // });
-
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
     

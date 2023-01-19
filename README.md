@@ -1,4 +1,4 @@
-# Interview Scheduler
+# Dihni's Interview Scheduler
 
 ## Setup
 

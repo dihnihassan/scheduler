@@ -28,7 +28,6 @@ export function getInterview(state, interview) {
 
   newObj.interviewer = state.interviewers[interview.interviewer];
   newObj.student = interview.student
-  // console.log("NewObj", newObj);
   return newObj;
 
 }
@@ -52,3 +51,10 @@ export function getInterviewersForDay(state, day) {
  
   return result;
 }
+
+export function updateSpots() {
+  
+  const findDay = state.days.find(stateDay => stateDay.name === day);
+
+}
+
