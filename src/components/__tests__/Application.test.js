@@ -9,9 +9,7 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-
 describe ("Application", () => {
-  
   it("defaults to Monday and changes the schedule when a new day is selected", () => {
     const { getByText } = render(<Application />);
   
@@ -48,8 +46,7 @@ describe ("Application", () => {
       queryByText(day, "Monday")
     );
 
-          // come back and fix spots remaining
-    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+    expect(getByText(day, "no spots remaining")).toBeInTheDocument();
 
   });
 
@@ -71,15 +68,9 @@ describe ("Application", () => {
 
     await waitForElement(() => getByAltText(appointment, "Add"));
 
-    const day = getAllByTestId(container, "day").find(day => 
-      queryByText(day, "Monday"));
+    const day = getAllByTestId(container, "day").find(day => queryByText(day, "Monday"));
 
-
-      // come back and fix spots remaining
-      expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-
-    debug();
-
+    expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
 
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
@@ -124,7 +115,6 @@ describe ("Application", () => {
       target: { value: "Lydia Miller-Jones" }
     });
     fireEvent.click(getByText(appointment, "Save"));
-    // expect(getByText(appointment, "Saving")).toBeInTheDocument();
     
     await waitForElement(() => getByText(appointment, "Error"))
     expect(getByText(appointment, "Could not save appointment")).toBeInTheDocument();

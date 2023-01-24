@@ -4,7 +4,6 @@ import "components/InterviewerListItem.scss";
 import classNames from "classnames";
 
 
-// {id: number, name: string, avatar: url, selected: boolean}
 function InterviewerListItem(props) {
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected

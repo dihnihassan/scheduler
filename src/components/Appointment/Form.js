@@ -35,7 +35,6 @@ function Form(props) {
     setError("");
     props.onSave(student, interviewer);
   }
-
   
   return (
     <main className="appointment__card appointment__card--create">
@@ -43,20 +42,18 @@ function Form(props) {
         <form autoComplete="off" onSubmit={(event => event.preventDefault())}>
           <input
             className="appointment__create-input text--semi-bold"
-            // name="name"
             value={student}
             type="text"
             placeholder="Enter Student Name"
             onChange={(event) => setStudent(event.target.value)}
             data-testid="student-name-input"
-            />
-      <section className="appointment__validation">{error}</section>
+          />
+          <section className="appointment__validation">{error}</section>
         </form>
         <InterviewerList
-        onChange={setInterviewer}
-        value={interviewer}
-        interviewers={props.interviewers}
-
+          onChange={setInterviewer}
+          value={interviewer}
+          interviewers={props.interviewers}
         />
       </section>
       <section className="appointment__card-right">

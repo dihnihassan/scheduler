@@ -1,17 +1,14 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-
-import "components/Application.scss";
-
-import DayList from "./DayList";
-import Appointment from "components/Appointment";
 
 import { getAppointmentsForDay } from "helpers/selectors";
 import { getInterview } from "helpers/selectors";
 import { getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
+import DayList from "./DayList";
+import Appointment from "components/Appointment";
+
+import "components/Application.scss";
+
 
 
 export default function Application(props) {
@@ -23,21 +20,20 @@ export default function Application(props) {
   } = useApplicationData();
 
   const interviewers = getInterviewersForDay(state, state.day);
-  console.log(state.days[0]);
 
   const appointments = getAppointmentsForDay(state, state.day).map(
     appointment => {
       const interview = getInterview(state, appointment.interview);
-           return (
-                 <Appointment
-                 key={appointment.id}
-                  id={appointment.id}
-                  time={appointment.time}
-                  interview={interview} 
-                  interviewers={interviewers}
-                  bookInterview={bookInterview}
-                  cancelInterview={cancelInterview}
-                />)
+        return (
+          <Appointment
+            key={appointment.id}
+            id={appointment.id}
+            time={appointment.time}
+            interview={interview} 
+            interviewers={interviewers}
+            bookInterview={bookInterview}
+            cancelInterview={cancelInterview}
+        />)
     
     }
   );
